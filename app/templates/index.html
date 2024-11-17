@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Form</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+
+<body>
+    <h1>Enter Your Details</h1>
+    <form method="post" action="/submit">
+        <label>Age:</label><br>
+        <input type="text" name="age" required><br><br>
+
+        <label>Gender:</label><br>
+        <input type="text" name="gender" required><br><br>
+
+        <label>Total Income:</label><br>
+        <input type="text" name="income" required><br><br>
+
+        <label>Expenses:</label><br>
+        <input type="checkbox" name="expense_category" value="Utilities"> Utilities: <input type="text"
+            name="utilities"><br>
+        <input type="checkbox" name="expense_category" value="Entertainment"> Entertainment: <input type="text"
+            name="entertainment"><br>
+        <input type="checkbox" name="expense_category" value="School Fees"> School Fees: <input type="text"
+            name="school_fees"><br>
+        <input type="checkbox" name="expense_category" value="Shopping"> Shopping: <input type="text"
+            name="shopping"><br>
+        <input type="checkbox" name="expense_category" value="Healthcare"> Healthcare: <input type="text"
+            name="healthcare"><br><br>
+
+        <input type="submit" value="Submit">
+    </form>
+</body>
+
+</html>
