@@ -1,7 +1,8 @@
 from flask import Flask, render_template, request, redirect
 from pymongo import MongoClient
+from time import time
 
-app = Flask(__name__, template_folder='app/templates')
+app = Flask(__name__, static_folder='app/static', template_folder='app/templates')
 
 # MongoDB setup
 client = MongoClient('mongodb://localhost:27017/')
