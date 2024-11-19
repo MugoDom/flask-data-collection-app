@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, redirect
 from pymongo import MongoClient
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder='app/templates')
 
 # MongoDB setup
 client = MongoClient('mongodb://localhost:27017/')
@@ -35,7 +35,7 @@ def submit():
 
 @app.route('/success')
 def success():
-    return render_template('success.html')
+    return render_template('submission.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
