@@ -6,8 +6,8 @@ app = Flask(__name__, static_folder='app/static', template_folder='app/templates
 
 # MongoDB setup
 client = MongoClient('mongodb://localhost:27017/')
-db = client['user_database']
-collection = db['user_data']
+db = client['yaspi_survey_database']
+collection = db['survey_data']
 
 @app.route('/')
 def index():
@@ -15,29 +15,44 @@ def index():
 
 @app.route('/submit', methods=['POST'])
 def submit():
-    age = request.form['age']
-    gender = request.form['gender']
-    income = request.form['income']
-    expenses = {
-        "utilities": request.form.get('utilities', 0),
-        "entertainment": request.form.get('entertainment', 0),
-        "school_fees": request.form.get('school_fees', 0),
-        "shopping": request.form.get('shopping', 0),
-        "healthcare": request.form.get('healthcare', 0),
-    }
-    data = {
-        "age": age,
-        "gender": gender,
-        "income": income,
-        "expenses": expenses,
-    }
-    collection.insert_one(data)
-    return redirect('/success')
+    try:
+        # Extract basic form data
+        age = int(request.form.get('age', 0))
+        gender = request.form.get('gender', 'Not Specified')
+        income = float(request.form.get('income', 0))
+
+        # Extract and process expenses
+        expenses = {}
+        for category in ["utilities", "entertainment", "school_fees", "shopping", "healthcare"]:
+            if request.form.get(f"{category}-checkbox") == "on":  # Checkbox checked
+                expenses[category] = float(request.form.get(category, 0))  # Get amount
+            else:
+                expenses[category] = 0  # Default to 0 if checkbox not checked
+
+        # Prepare data for MongoDB
+        data = {
+            "age": age,
+            "gender": gender,
+            "income": income,
+            "expenses": expenses,
+        }
+
+        # Debugging output
+        print(f"Data to insert: {data}")
+
+        # Insert into MongoDB
+        collection.insert_one(data)
+
+        return redirect('/success')
+    except Exception as e:
+        # Log any errors for debugging
+        print(f"Error processing form submission: {e}")
+        return "An error occurred while processing your submission.", 500
 
 @app.route('/success')
 def success():
     return render_template('submission.html')
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, host='127.0.0.1', port=5000)
 
