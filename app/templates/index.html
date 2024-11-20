@@ -4,36 +4,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Form</title>
-    <link rel="stylesheet" type='text/css' href="{{ url_for('static', filename='css/styles.css') }}">
+    <title>User Data Form</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='CSS/styles.css') }}">
 </head>
 
 <body>
-    <h1>Enter Your Details</h1>
-    <form method="post" action="/submit">
-        <label>Age:</label><br>
-        <input type="text" name="age" required><br><br>
+    <div class="container">
+        <h1>Survey Form</h1>
+        <p class="para">
+            Yaspi Analytics is launching "Healthy Heart &#129505;" an innovative healthcare product aimed at enhancing
+            personal
+            wellness. We are conducting a survey to help us understand participants' income and spending habits. This
+            data will help us identify market trends, and tailor the product to meet customer needs, ensuring it aligns
+            with their financial priorities and making it accessibile and relevant to our target audience. Help us by
+            filling in your details below:
+        </p>
 
-        <label>Gender:</label><br>
-        <input type="text" name="gender" required><br><br>
+        <form action="/submit" method="POST">
+            <!-- Age Input -->
+            <label for="age">Age: Enter your age</label>
+            <input type="number" id="age" name="age" required>
 
-        <label>Total Income:</label><br>
-        <input type="text" name="income" required><br><br>
+            <!-- Gender Input -->
+            <label for="gender">Gender:</label>
+            <select id="gender" name="gender" required>
+                <option value="">Select Gender</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+            </select>
 
-        <label>Expenses:</label><br>
-        <input type="checkbox" name="expense_category" value="Utilities"> Utilities: <input type="text"
-            name="utilities"><br>
-        <input type="checkbox" name="expense_category" value="Entertainment"> Entertainment: <input type="text"
-            name="entertainment"><br>
-        <input type="checkbox" name="expense_category" value="School Fees"> School Fees: <input type="text"
-            name="school_fees"><br>
-        <input type="checkbox" name="expense_category" value="Shopping"> Shopping: <input type="text"
-            name="shopping"><br>
-        <input type="checkbox" name="expense_category" value="Healthcare"> Healthcare: <input type="text"
-            name="healthcare"><br><br>
+            <!-- Income Input -->
+            <label for="income">Total Income:</label>
+            <input type="number" id="income" name="income" required>
 
-        <input type="submit" value="Submit">
-    </form>
+            <!-- Expense Categories -->
+            <label>Expenses:</label>
+            <div class="expense-category">
+                <input type="checkbox" id="utilities" name="expenses[utilities]">
+                <label for="utilities">Utilities:</label>
+                <input type="number" id="utilities-amount" name="expenses[utilities-amount]" placeholder="Amount">
+            </div>
+            <div class="expense-category">
+                <input type="checkbox" id="entertainment" name="expenses[entertainment]">
+                <label for="entertainment">Entertainment:</label>
+                <input type="number" id="entertainment-amount" name="expenses[entertainment-amount]"
+                    placeholder="Amount">
+            </div>
+            <div class="expense-category">
+                <input type="checkbox" id="school-fees" name="expenses[school-fees]">
+                <label for="school-fees">School Fees:</label>
+                <input type="number" id="school-fees-amount" name="expenses[school-fees-amount]" placeholder="Amount">
+            </div>
+            <div class="expense-category">
+                <input type="checkbox" id="shopping" name="expenses[shopping]">
+                <label for="shopping">Shopping:</label>
+                <input type="number" id="shopping-amount" name="expenses[shopping-amount]" placeholder="Amount">
+            </div>
+            <div class="expense-category">
+                <input type="checkbox" id="healthcare" name="expenses[healthcare]">
+                <label for="healthcare">Healthcare:</label>
+                <input type="number" id="healthcare-amount" name="expenses[healthcare-amount]" placeholder="Amount">
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit">Submit</button>
+        </form>
+    </div>
 </body>
 
 </html>
