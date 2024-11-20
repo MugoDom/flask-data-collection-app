@@ -1,22 +1,86 @@
+/* General Body Styling */
 body {
     font-family: Arial, sans-serif;
-    margin: 20px;
+    background-color: whitesmoke;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.para {
+    text-align: justify;
+}
+
+/* Form Container */
+.container {
+    background: beige;
     padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 400px;
 }
 
+/* Form Title */
 h1 {
-    color: black;
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
 }
 
-form {
-    max-width: 400px;
-    margin: auto;
-}
-
-input[type="text"],
-input[type="submit"] {
+/* Form Labels */
+label {
     display: block;
+    margin: 10px 0 5px;
+    color: #555;
+    font-weight: bold;
+}
+
+/* Form Inputs */
+input[type="number"],
+select {
     width: 100%;
+    padding: 8px;
     margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Expense Categories */
+.expense-category {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.expense-category label {
+    flex: 1;
+    margin: 0 10px;
+}
+
+.expense-category input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+.expense-category input[type="number"] {
+    width: 70px;
+}
+
+/* Submit Button */
+button {
+    width: 100%;
+    background: #007bff;
+    color: #fff;
+    border: none;
     padding: 10px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+button:hover {
+    background: grey;
 }
