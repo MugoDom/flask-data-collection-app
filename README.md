@@ -14,6 +14,7 @@ It also enmpossases the app deployment on **AWS EC2**.
 6. [Data Visualization](#data-visualization)
 7. [Deploying on AWS](#deploying-on-aws)
 8. [Troubleshooting](#troubleshooting)
+9. [Improvements](#improvements)
 
 ---
 ## Prerequisites
