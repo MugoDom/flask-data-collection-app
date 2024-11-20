@@ -1,5 +1,5 @@
 
-# Flask Web Application with MongoDB, Data Processing, and AWS Deployment
+# Flask Web Data Collection Application
 
 This project demonstrates how to create a simple web application using **Flask** to collect user data, store it in **MongoDB**, and process the data using **Python** libraries, then visualize it.
 It also enmpossases the app deployment on **AWS EC2**.
