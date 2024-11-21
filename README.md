@@ -4,6 +4,8 @@
 This project demonstrates how to create a simple web application using **Flask** to collect user data, store it in **MongoDB**, and process the data using **Python** libraries, then visualize it.
 It also enmpossases the app deployment on **AWS EC2**.
 
+Live Demo: [http://13.60.198.88:5000/]
+
 ## Table of Contents
 
 1. [Prerequisites](#prerequisites)
